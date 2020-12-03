@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      #colorgreen{
+          color: green;
+      }
+      #colorred{
+          color: red;
+      }
+    </style>
+</head>
+<body>
+    
+<h1 class="title">change my color</h1>
+<button class="btn">change to green</button>
+<button class="btn">change to red</button>
+  <br>
+  <br>
+<input type="text">
+<button class="btnTask">add new task</button>
+<ul>
+</ul>
+<br>
+    <script>
+        var title=document.getElementsByClassName('title')[0]
+        var btn1=document.getElementsByClassName('btn')[0]
+        var btn2=document.getElementsByClassName('btn')[1]
+
+        btn1.addEventListener('click',changeTogreen)
+
+        function changeTogreen()
+        {  
+            title.setAttribute('id','colorgreen')
+        }
+
+
+        btn2.addEventListener('click',changeTored)
+
+       function changeTored()
+       {
+            title.setAttribute('id','colorred')
+               
+       }
+
+  
+    
+    var btnTask=document.getElementsByClassName('btnTask')[0]
+      var ul=document.querySelector('ul')
+      var input=document.querySelector('input')
+
+    btnTask.addEventListener('click',function(){
+        if(input.value!="")
+        {
+            // var li=document.createElement('li')
+              
+            // li.appendChild(document.createTextNode(input.value))
+            
+            // ul.appendChild(li)
+
+            ul.innerHTML+='<li>'+input.value+'</li>'
+            input.value=''
+
+        }
+        else{
+            
+            alert('input should not be empty')
+        }
+    })
+     
+    
+    </script>
+</body>
+</html>

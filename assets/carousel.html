@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+
+    <style>
+        .mainImage{
+            width: 40%;
+            margin: auto;
+            height: 200px;
+
+        }
+        .mainImage{
+            display:flex;
+            justify-content: center;
+            margin: 50px;
+            width: 50%;
+            margin: 40px auto;
+        }
+        .imageListe{
+            display: flex;
+            justify-content: space-between;
+           
+        }
+        .imageListe img{
+            width: 200px;
+            height: 200px;
+        }
+        .animation{
+        display: inline-block;
+        margin: 0 0.5rem;
+        animation: zoomIn; /* referring directly to the animation's @keyframe declaration */
+        animation-duration: 2s; 
+        animation-iteration-count:infinite;
+
+         }
+         .opacity{
+             opacity: 0.5;
+         }      
+    </style>
+</head>
+<body>
+<div class="mainImage">
+    <img class="main" src="https://images.unsplash.com/photo-1601505804121-45e2c5506c94?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="">
+</div>
+
+<div class="imageListe">
+    <img class="images" src="https://images.unsplash.com/photo-1601406983659-bf216645b945?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="">
+    <img class="images" src="https://images.unsplash.com/photo-1601556184837-143305a21229?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="">
+    <img class="images" src="https://images.unsplash.com/photo-1601560051606-da80822305d4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="">
+    <img class="images" src="https://images.unsplash.com/photo-1601555776921-6e8cff3e6360?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="">
+    <img class="images" src="https://images.unsplash.com/photo-1601505378003-0115cb4471fc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="">
+</div>
+
+    <script>
+        var src
+        var i=0
+     var listImg= document.querySelectorAll('.images')
+     var mainImg=document.querySelector('.main')
+      const myArray=Array.from(listImg)
+     
+          console.log(myArray.indexOf(myArray[0]))
+
+      setInterval(() => {
+
+             mainImg.setAttribute('src',listImg[i].getAttribute('src'))
+             mainImg.classList.add('animation')
+            i++
+            if(i==4)
+            {
+                i=0
+            }
+      }, 2000);
+     
+    </script>
+</body>
+</html>

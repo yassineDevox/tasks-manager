@@ -1,0 +1,140 @@
+<html>
+<head>
+<title>Calculatrice</title>
+<script type="text/javascript">
+</script>
+<style>
+
+.button {  width:60px; text-align:center;
+           font-family:System,sans-serif;
+           font-size:100%; }
+.affiche { width:100%; text-align:right;
+           font-family:System,sans-serif;
+           font-size:100%; }
+#tr1 , #tr2{
+    display: none;
+    color: green;
+}
+
+</style>
+</head>
+<body bgcolor="#FFFFE0" text="#000000">
+
+<form name="calculatrice" action="" onSubmit="">
+<table border="5" cellpadding="10" cellspacing="0">
+<tr>
+    <td bgcolor="#C0C0C0">
+    <input  type="text"  id='input' name="affiche" align="right" class="affiche">
+    </td>
+</tr>
+
+
+
+   <div class="wrap">
+       <tr id="tr1">
+           <td bgcolor="#C0C0C0">
+               <label>insert the first value</label>
+           <input type="text"  id='input1' name="affiche" align="right" class="affiche">
+           </td>
+       </tr>
+       
+       <tr id="tr2">
+           <td bgcolor="#C0C0C0">
+               <label>insert the second value</label>
+           <input type="text"  id='input2' name="affiche" align="right" class="affiche">
+           </td>
+       </tr>
+   </div>
+
+
+<td  bgcolor="#E0E0E0">
+<table border="0" cellpadding="0" cellspacing="2">
+<tr>
+<td><input type="button" width="60" class="button" value="  7   " onClick="display(7)"></td>
+<td><input type="button" width="60" class="button" value="  8   " onClick="display(8)"></td>
+<td><input type="button" width="60" class="button" value="  9   " onClick="display(9)"></td>
+<td><input type="button" width="60" class="button" value="  +   " onClick="display(value)"></td>
+</tr>
+<tr>
+<td><input type="button" width="60" class="button" value="  4   " onClick="display(4)"></td>
+<td><input type="button" width="60" class="button" value="  5   " onClick="display(5)"></td>
+<td><input type="button" width="60" class="button" value="  6   " onClick="display(6)"></td>
+<td><input type="button" width="60" class="button" value="  -   " onClick="display(value)"></td>
+</tr>
+<tr>
+<td><input type="button" width="60" class="button" value="  1   " onClick="display(1)"></td>
+<td><input type="button" width="60" class="button" value="  2   " onClick="display(2)"></td>
+<td><input type="button" width="60" class="button" value="  3   " onClick="display(3)"></td>
+<td><input type="button" width="60" class="button" value="  *   " onClick="display(value)"></td>
+</tr>
+<tr>
+<td><input type="button" width="60" class="button" value="  =   " onClick="calcule()"></td>
+<td><input type="button" width="60" class="button" value="  0   " onClick="display(0)"></td>
+<td><input type="button" width="60" class="button" value="  .   " onClick="display(value)"></td>
+<td><input type="button" width="60" class="button" value="  /   " onClick="display(value)"></td>
+</tr>
+<tr>
+<td><input type="button" width="60" class="button" value="sqrt " onClick="mysqrt()"></td>
+<td><input type="button" width="60" class="button" value=" pow " onClick="mypow()"></td>
+<td><input type="button" width="60" class="button" value=" log " onClick="calcule"></td>
+<td><input type="reset"  width="60" class="button" value="  C  " ></td>
+</tr>
+</table>
+</td></tr></table>
+</form>
+<script>
+  var input=document.getElementById('input').addEventListener('keypress',function(e){
+      console.log(e.target.value)
+  })
+  var input1=document.getElementById('input1')
+  var input2=document.getElementById('input2')
+
+  var result
+  var res,newValue
+
+
+// to display the values comming from buttons in input 
+function display(myValue){ 
+   input.value+=myValue;
+
+}
+
+// to delete the spaces between values
+function calcule(){
+    if(input.value!='')
+    {
+       res=input.value
+       newValue =res.replace(/\s+/g, '') 
+       result=eval(newValue)
+       input.value=result
+    }
+    else {
+        result=  Math.pow(input1.value,input2.value)
+        input.value=result
+    }
+    
+}
+
+
+function mysqrt()
+{
+      result=Math.sqrt(input.value)
+      input.value=result
+}
+
+function mypow()
+{
+          document.getElementById('tr1').style.display='block'       
+          document.getElementById('tr2').style.display='block'       
+}
+
+function calculePow()
+{
+    
+      result=  Math.pow(input1.value,input2.value)
+
+      input.value=result
+}
+</script>
+</body>
+</html>

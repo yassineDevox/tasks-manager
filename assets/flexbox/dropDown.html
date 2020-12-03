@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+.parent{
+    width: 400px;
+    height: 400px;
+    border: 1px solid black;
+    margin: auto;
+
+}
+.child1{
+    width: 100px;
+    height: 100px;
+    background-color: brown;
+}
+.child2{
+    width: 100px;
+    height: 100px;
+    background-color: rgb(46, 4, 4);
+}
+.child3{
+    width: 100px;
+    height: 100px;
+    background-color: rgb(158, 113, 113);
+}
+select{
+    margin-left: 400px;
+    margin-bottom: 30px;
+}
+    </style>
+</head>
+<body>
+    <select name="" id="">
+        <option value="none" selected disabled hidden>select your order</option>
+        <option value="flex">display flex</option>
+        <option value="space-between">justify content space-between</option>
+        <option value="flex-end">align items flex-end</option>
+        <option value="aqua">back ground-color aqua</option>
+    </select>
+   
+   <div class="parent">
+       <div class="child1">box 1</div>
+       <div class="child2">box 2</div>
+       <div class="child3">box 3</div>
+   </div>
+
+    <script>
+          var parent=document.querySelector('.parent')
+           /// div parent
+        document.querySelector('select').addEventListener('change',function(e){
+                //display flex
+                parent.style.display=e.target.value
+                // alignitems
+                parent.style.alignItems=e.target.value
+                //justify content
+                parent.style.justifyContent=e.target.value
+                //background color
+                parent.style.backgroundColor=e.target.value
+        })
+
+       
+    </script>
+</body>
+</html>

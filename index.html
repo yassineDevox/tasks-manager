@@ -1,49 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-  <title>Task List</title>
+  <title>3wa-admin</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+    crossorigin="anonymous" />
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nerko+One&display=swap" rel="stylesheet">
 </head>
-<body>
-  <div class="container">
-    <div class="row">
-      <div class="col s12">
-        <div id="main" class="card">
-          <div class="card-content">
-            <span class="card-title">Task List</span>
-            <div class="row">
-              <form id="task-form">
-                <div class="input-field col s12">
-                  <input type="text" name="task" id="task">
-                  <label for="task">New Task</label>
-                </div>
-                <input type="submit" value="Add Task" class="btn">
-              </form>
-            </div>
-          </div>
-          <div class="card-action">
-            <h5 id="task-title">Tasks</h5>
-            <div class="input-field col s12">
-              <input type="text" name="filter" id="filter">
-              <label for="filter">Filter Tasks</label>
-            </div>
-            <ul class="collection"></ul>
-            <a href="#" class="clear-tasks btn black">Clear Tasks</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<style>
+  * {
+    margin: 0
+  }
 
-  <script
-  src="https://code.jquery.com/jquery-3.2.1.js"
-  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
-  crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-  <script src="app.js"></script>
+  main ul {
+    margin: 3px;
+  }
+
+  main ul:first-child li:nth-child(odd) {
+    padding: 5px;
+  }
+
+  main ul:first-child li:nth-child(odd) .icon {
+    zoom: .9
+  }
+
+  main ul:first-child li:nth-child(even) * {
+    visibility: hidden;
+  }
+
+  main ul:first-child li:nth-child(even) {
+    background-color: #0066EB;
+  }
+
+  main {
+    background-color: #0066EB;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  ul {
+    padding: 0;
+    transition-duration: 0.6s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border-radius: 13px;
+    background-color: white;
+  }
+
+  ul li {
+    list-style-type: none;
+    border-bottom: solid gainsboro .5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+
+  ul li:last-child {
+    border: none
+  }
+
+  ul li:hover a {
+    color: #0066EB;
+  }
+
+  ul li:hover i {
+    color: #0066EB
+  }
+
+  ul li:hover .icon {
+    border-color: #0066EB;
+  }
+
+  li i {
+    transition: 1s all;
+  }
+
+  li a {
+    text-decoration: none;
+    color: darkslategrey;
+    text-transform: uppercase;
+    font-size: 1.2em;
+    font-family: 'Nerko One', cursive;
+    transition: 1s all;
+  }
+
+  li div.icon {
+    display: flex;
+    border: solid rgba(48, 45, 45, 0.301) .5px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  i {
+    font-size: large;
+  }
+</style>
+
+<body>
+  <main>
+
+    <ul class="animate__animated animate__bounceInLeft">
+      <li>
+        <div class="icon"><i class="fas fa-clipboard-list"></i></div>
+        <a target="blank" href="./assets/dom traversing/app.html">
+          task
+        </a>
+      </li>
+      <li>
+        <div class="icon"><i class="fas fa-users-cog"></i>
+        </div>
+        <a target="blank" href="">
+          administration
+        </a>
+      </li>
+      <li>
+        <div class="icon"><i class="fas fa-tasks"></i>
+        </div>
+        <a target="blank" href="./assets/animation/animation.html"> animation
+        </a>
+      </li>
+      <li>
+        <div class="icon">
+          <i class="fas fa-calendar-alt"></i>
+        </div>
+        <a target="blank">
+          my Calendar
+        </a>
+      </li>
+      <li>
+        <div class="icon">
+          <i class="fas fa-book"></i>
+        </div>
+        <a target="blank" href="./assets/dataBinding/dataBinding.html">
+          d-Binding
+        </a>
+      </li>
+    </ul>
+    <ul class="animate__animated animate__bounceInRight">
+      <li>
+        <div class="icon"><i class="fas fa-clipboard-list"></i></div>
+        <a target="blank"
+          href="./assets/calculatrice.html">
+          Calculator
+        </a>
+      </li>
+      <li>
+        <div class="icon"><i class="fas fa-users-cog"></i>
+        </div>
+        <a target="blank"
+          href="./assets/carousel.html">
+          carousel
+        </a>
+      </li>
+      <li style="display: none;">
+        <div class="icon"><i class="fas fa-tasks"></i>
+        </div>
+        <a target="blank"
+          href="https://docs.google.com/spreadsheets/d/1Hw33Ki2UwHqahCdzf4iGeAX3FYLKe6aDn0vJlYTSgew/edit#gid=0">
+        </a>
+      </li>
+      <li>
+        <div class="icon">
+          <i class="fas fa-calendar-alt"></i>
+        </div>
+        <a target="blank"
+          href="./assets/automate/autoadd.html">
+          auto-add
+        </a>
+      </li>
+      <li>
+        <div class="icon">
+          <i class="fas fa-book"></i>
+        </div>
+        <a target="blank" href="./assets/flexbox/dropDown.html">
+          flex-box
+        </a>
+      </li>
+    </ul>
+  </main>
+
 </body>
+
 </html>
